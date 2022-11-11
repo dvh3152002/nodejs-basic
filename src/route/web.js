@@ -10,6 +10,8 @@ const initWebRoute = (app) => {
         res.send(`i'm H`);
     });
 
+    route.get('/detail/user/:id', homeController.getDetailPage);
+
     app.use('/', route);
 }
 
