@@ -9,7 +9,7 @@ let getHomePage = async (req, res) => {
 
 let getDetailPage = async (req, res) => {
     let userId = req.params.id;
-    const [user] = await pool.execute('select * from users where id=?', [userId]);
+    let [user] = await pool.execute('select * from users where id=?', [userId]);
     return res.send(JSON.stringify(user));
 }
 
@@ -20,6 +20,24 @@ let createNewUser = async (req, res) => {
     return res.redirect('/');
 }
 
+let deleteUser = async (req, res) => {
+    let userId = req.body.userId;
+    await pool.execute('delete from users where id=?', [userId]);
+    return res.redirect('/');
+}
+
+let getEditUser = async (req, res) => {
+    let id = req.params.id;
+    let [user] = await pool.execute('select * from users where id=?', [id]);
+    return res.render('updateUser.ejs', { dataUser: user[0] });
+}
+
+let postUpdateUser = async (req, res) => {
+    let { id, firstName, lastName, email, address } = req.body;
+    await pool.execute('UPDATE users SET firstName=?,lastName=?,email=?,address=? WHERE id=?', [firstName, lastName, email, address, id]);
+    return res.redirect('/');
+}
+
 module.exports = {
-    getHomePage, getDetailPage, createNewUser
+    getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser
 }
