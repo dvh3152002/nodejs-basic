@@ -20,6 +20,8 @@ const initWebRoute = (app) => {
 
     route.post('/update-user', homeController.postUpdateUser);
 
+    route.get('/upload', homeController.getUploadFile);
+
     app.use('/', route);
 }
 
