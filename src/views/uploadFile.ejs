@@ -4,21 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NodeJS Basic</title>
+    <title>Node.JS Basic</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
     <div class="topnav">
-        <a href="#home">Home</a>
-        <a class="active" href="/upload">Upload File</a>
+        <a href="/">Home</a>
+        <a href="/upload" class="active">Upload file</a>
     </div>
 
     <div class="upload-file-container">
-        upload File
+        <form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
+            <h1>Handling File Uploads in Node.js with Express and Multer</h1>
+
+            <div>
+                <h3>Upload Single File</h3>
+                <span>Select single image:</span>
+                <input type="file" name="profile_pic" />
+            </div>
+
+
+            <div>
+                <button class="btn-save" type="submit">Upload</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <form method="POST" action="/upload-multiple-images" enctype="multipart/form-data">
+            <div>
+                <h3>Upload Multiple Files</h3>
+                <span>Select multiple images:</span>
+                <input type="file" name="multiple_images" multiple />
+            </div>
+            <div>
+                <input type="submit" name="btn_upload_multiple_images" value="Upload" />
+            </div>
+        </form>
     </div>
-    </div>
+
 </body>
 
 </html>

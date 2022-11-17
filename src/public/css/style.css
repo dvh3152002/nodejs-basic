@@ -54,3 +54,19 @@ body {
     margin-top: 15px;
     cursor: pointer;
 }
+
+.upload-file-container {
+    padding: 15px;
+}
+
+.upload-file-container label {
+    display: block;
+}
+
+.w3-table-all .btn-detail {
+    text-decoration: none;
+    border: 1px #333 solid;
+    padding: 2px;
+    display: block;
+    border-radius: 3px;
+}

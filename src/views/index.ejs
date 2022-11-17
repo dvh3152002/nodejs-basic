@@ -11,7 +11,7 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="/">Home</a>
         <a href="/upload">Upload File</a>
     </div>
 
@@ -40,8 +40,10 @@
                             <td>
                                 <%= dataUser[i].lastName %>
                             </td>
-                            <td>
-                                <a href="/detail/user/<%= dataUser[i].id %>">Detail</a>
+                            <td style="display: flex; gap: 15px;">
+                                <form>
+                                    <a class="btn-detail" href="/detail/user/<%= dataUser[i].id %>">Detail</a>
+                                </form>
                                 <form action="/edit/user/<%= dataUser[i].id %>" method="get">
                                     <button type="submit">Edit</button>
                                 </form>
